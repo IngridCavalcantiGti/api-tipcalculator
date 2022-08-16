@@ -4,7 +4,6 @@
     <i :class="`bi bi-currency-${icon}`"></i>
     <div>
       <input
-        class="p-2"
         type="text"
         @input="updateInput($event.target.value)"
         :value="value"
@@ -41,5 +40,8 @@ export default {
 <style scoped>
 .label {
   font-size: 1rem;
+}
+input {
+  width: 7rem;
 }
 </style>
