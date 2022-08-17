@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column">
+  <div class="flex-column d-sm-flex">
     <span class="mb-3">
       Conta
       <i :class="`bi bi-currency-${icon}`" class="d-block"> {{ account }}</i>
@@ -31,16 +31,19 @@ export default {
       default: "dollar",
     },
     account: {
-      type: String,
+      type: Number,
     },
     tip: {
-      type: String,
+      type: Number,
     },
     total: {
-      type: String,
+      type: Number,
     },
     perPerson: {
-      type: String,
+      type: Number,
+    },
+    coin: {
+      type: Number,
     },
   },
 };

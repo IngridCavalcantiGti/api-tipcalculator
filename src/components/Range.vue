@@ -1,14 +1,20 @@
 <template>
   <div>
     <label for="customRange1">{{ label }}</label>
-    <span>{{ numberRange }}</span>
+    <span class="ms-1">
+      <slot name="value">
+        {{ modelValue }}
+      </slot>
+    </span>
     <div class="d-flex">
       <span class="me-3">{{ numberMin }}</span>
       <input
         type="range"
         id="customRange1"
-        :value="value"
+        :value="modelValue"
         @input="updateInput($event.target.value)"
+        :min="numberMin"
+        :max="numberMax"
       />
       <span class="ms-3">{{ numberMax }}</span>
     </div>
@@ -23,23 +29,20 @@ export default {
     label: {
       type: String,
     },
-    value: {
-      type: String,
-    },
-    numberRange: {
-      type: String,
+    modelValue: {
+      type: Number,
     },
     numberMin: {
-      type: String,
+      type: Number,
     },
     numberMax: {
-      type: String,
+      type: Number,
     },
   },
 
   setup(props, { emit }) {
     const updateInput = (value) => {
-      emit("onInput", value);
+      emit("update:modelValue", Number(value));
     };
     return {
       updateInput,

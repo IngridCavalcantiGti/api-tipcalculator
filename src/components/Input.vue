@@ -4,9 +4,9 @@
     <i :class="`bi bi-currency-${icon}`"></i>
     <div>
       <input
-        type="text"
+        type="number"
         @input="updateInput($event.target.value)"
-        :value="value"
+        :value="modelValue"
       />
     </div>
   </label>
@@ -19,8 +19,8 @@ export default {
     label: {
       type: String,
     },
-    value: {
-      type: String,
+    modelValue: {
+      type: Number,
     },
     icon: {
       type: String,
@@ -29,7 +29,7 @@ export default {
   },
   setup(props, { emit }) {
     const updateInput = (value) => {
-      emit("onInput", value);
+      emit("update:modelValue", Number(value));
     };
     return {
       updateInput,

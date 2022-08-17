@@ -2,12 +2,22 @@
   <div class="d-flex align-items-center">
     <span class="form-check-label me-2">EUR</span>
     <label class="switch">
-      <input type="checkbox" />
+      <input type="checkbox" @change="updateChange" />
       <span class="slider"></span>
     </label>
     <span class="form-check-label ms-2">USD</span>
   </div>
 </template>
+<script>
+export default {
+  setup(props, { emit }) {
+    const updateChange = (event) => {
+      emit("updateChange", event.target.value);
+    };
+    return { updateChange };
+  },
+};
+</script>
 <style scoped>
 .switch {
   position: relative;
