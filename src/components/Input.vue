@@ -7,6 +7,7 @@
         type="number"
         @input="updateInput($event.target.value)"
         :value="modelValue"
+        min="0"
       />
     </div>
   </label>

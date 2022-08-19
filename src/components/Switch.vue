@@ -2,19 +2,31 @@
   <div class="d-flex align-items-center">
     <span class="form-check-label me-2">EUR</span>
     <label class="switch">
-      <input type="checkbox" @change="updateChange" />
+      <input type="checkbox" v-model="value" />
       <span class="slider"></span>
     </label>
     <span class="form-check-label ms-2">USD</span>
   </div>
 </template>
 <script>
+import { computed } from "vue";
 export default {
+  props: {
+    modelValue: {
+      type: Boolean,
+    },
+  },
   setup(props, { emit }) {
-    const updateChange = (event) => {
-      emit("updateChange", event.target.value);
-    };
-    return { updateChange };
+    const value = computed({
+      get() {
+        return props.modelValue;
+      },
+      set(inputValue) {
+        emit("update:modelValue", inputValue);
+      },
+    });
+
+    return { value };
   },
 };
 </script>

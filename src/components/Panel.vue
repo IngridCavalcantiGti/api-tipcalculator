@@ -1,25 +1,32 @@
 <template>
-  <div class="flex-column d-sm-flex">
-    <span class="mb-3">
-      Conta
-      <i :class="`bi bi-currency-${icon}`" class="d-block"> {{ account }}</i>
-    </span>
-    <span class="mb-3">
-      Gorjeta
-      <i :class="`bi bi-currency-${icon}`" class="d-block"> {{ tip }}</i>
-    </span>
-    <span class="mb-3">
-      Total
-      <i :class="`bi bi-currency-${icon}`" class="d-block"> {{ total }}</i>
-    </span>
-    <span class="mb-3">
-      por Pessoa
-      <i :class="`bi bi-currency-${icon}`" class="d-block">{{ perPerson }}</i>
-    </span>
-    <span class="mb-3"> em R<i :class="`bi bi-currency-${icon}`"></i> </span>
-    <span class="mb-3"
-      >R<i :class="`bi bi-currency-${icon}`">{{ coin }}</i>
-    </span>
+  <div class="flex-column d-sm-flex gap-3">
+    <div>
+      <h2>Conta</h2>
+      <i :class="`bi bi-currency-${icon}`" />
+      {{ account }}
+    </div>
+    <div>
+      <h2>Gorjeta</h2>
+      <i :class="`bi bi-currency-${icon}`" />
+      {{ tip }}
+    </div>
+    <div>
+      <h2>Total</h2>
+      <i :class="`bi bi-currency-${icon}`" />
+      {{ total }}
+    </div>
+    <div>
+      <h2>por Pessoa</h2>
+      <i :class="`bi bi-currency-${icon}`" />
+      {{ perPerson }}
+    </div>
+    <div>
+      <h2>em R$</h2>
+      <span>
+        R$
+        {{ coin }}
+      </span>
+    </div>
   </div>
 </template>
 <script>
@@ -34,16 +41,16 @@ export default {
       type: Number,
     },
     tip: {
-      type: Number,
+      type: String,
     },
     total: {
-      type: Number,
+      type: String,
     },
     perPerson: {
-      type: Number,
+      type: String,
     },
     coin: {
-      type: Number,
+      type: String,
     },
   },
 };
